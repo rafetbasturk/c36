@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Frontend developer: Rafet Basturk, a chanllenge by https://www.frontendmentor.io/">
   <link rel="icon" type="image/png" sizes="32x32" href="./public/images/favicon-32x32.png">
   <title>Frontend Mentor | Crowdfunding product page</title>
   <link rel="stylesheet" href="./public/css/main.css">
@@ -35,7 +36,7 @@
       <h1>Mastercraft Bamboo Monitor Riser</h1>
       <p>A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
       <div class="main__btns">
-        <button type="button">Back this project</button>
+        <button type="button" aria-label="back this project">Back this project</button>
         <div class="main__bookmark">
           <svg class="main--book" width="56" height="56" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#2F2F2F" cx="28" cy="28" r="28"/><path fill="#B1B1B1" d="M23 19v18l5-5.058L33 37V19z"/></g></svg>
           <span class="main--book">Bookmark</span>
@@ -81,10 +82,10 @@
           <p>Enter your pledge</p>
           <form class="modal__form">
             <div>
-              <input type="number" name="price" value="25">
+              <input type="number" name="price" value="25" aria-label="select quantity">
               <span>$</span>
             </div>
-            <input type="submit" value="Continue">
+            <input type="submit" value="Continue" aria-label="submit the quantity">
           </form>
         </div>
       </div>

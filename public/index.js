@@ -167,7 +167,7 @@ const UIController = (() => {
                                 <strong>${object.left}</strong>
                                 <span>left</span>
                             </div>
-                            <button type="button">Select Reward</button>
+                            <button type="button" aria-label="select reward">Select Reward</button>
                         </div>
                     </div>`;
         
@@ -191,10 +191,10 @@ const UIController = (() => {
                             <p>Enter your pledge</p>
                             <form class="modal__form">
                                 <div>
-                                    <input type="number" name="price" value=${object.pledge}>
+                                    <input type="number" name="price" value=${object.pledge} aria-label="select quantity">
                                     <span>$</span>
                                 </div>
-                                <input type="submit" value="Continue">
+                                <input type="submit" value="Continue" aria-label="submit quantity">
                             </form>
                         </div>
                     </div>`;

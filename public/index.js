@@ -175,7 +175,7 @@ const UIController = (() => {
                     <div class="modal__card">
                         <div class="modal__option">
                             <div class="modal__check">
-                                <img class="modal__checkIcon hide" src="/public/images/icon-check.svg" alt="check">
+                                <img class="modal__checkIcon hide" src="./public/images/icon-check.svg" alt="check">
                             </div>
                             <div class="modal__stand">
                                 <h3>${object.type}</h3>

@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap');
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img, svg {
+    display: block;
+}
+
+// variables
+
+$pri-cyan: hsl(176, 50%, 47%);
+$pri-d-cyan: hsl(176, 72%, 28%);
+$neu-black: hsl(0, 0%, 0%);
+$neu-d-gray: hsl(0, 0%, 48%);
+
+// mixin
+
+@mixin link {
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 2.5rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+
+    &::after {
+        display: block;
+        content: '';
+        width: 100%;
+        margin-top: .3rem;
+        border-bottom: 2px solid black;
+        transform: scaleX(0);
+        transform-origin: left;  
+        transition: transform 250ms ease-in-out;
+    }
+
+    &:hover::after {
+        transform: scaleX(1);
+        transform-origin: right;
+    }
+}
+
+@mixin btn {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: $pri-cyan;
+    border: none;
+    padding: 1.8rem 4.2rem;
+    border-radius: 28px;
+    outline: none;
+
+    &:hover {
+        cursor: pointer;
+        background: $pri-d-cyan;
+    }
+}
+
+// responsive
+
+@mixin tablet {
+    @media screen and (min-width: 768px) {
+        @content; 
+    }
+}
+
+@mixin laptop {
+    @media screen and (min-width: 1200px) {
+        @content; 
+    }
+}

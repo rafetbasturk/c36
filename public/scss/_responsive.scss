@@ -1,0 +1,277 @@
+@include tablet {
+    a {
+        color: white;
+        font-size: 1.35rem;
+        font-weight: 500;
+        margin-left: 3rem;
+
+        &::after {
+            border-bottom: 2px solid white;
+            width: 50%;
+            transform-origin: center;
+            position: relative;
+            left: 25%;
+        }
+
+        &:hover::after {
+            transform-origin: center;
+        }
+    }
+
+    .main--bookmarked {
+
+        & {
+            padding: 0 2.4rem 0 0;
+        }
+    }
+
+    .main--out {
+
+        &::after {
+            left: 1.2rem;
+        }
+    }
+
+    .header {
+        background: url(/public/images/image-hero-desktop.jpg) no-repeat;
+        height: 400px;
+        padding: 4rem;
+
+        &__icons {
+            display: none !important;
+        }
+    
+        &__nav {
+            display: flex !important;
+            background: none;
+            box-shadow: none;
+            position: unset;
+            width: fit-content;
+        }
+    
+        ul {
+            display: flex;
+        }
+    
+        li {
+            border-bottom: none;
+            padding: 0;
+        }
+    }
+
+    .main {
+        top: -9rem;
+        padding: 0 0 2.5rem;
+
+
+        &__master {
+            padding: 4.8rem 4.8rem 3rem;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin: 1.6rem 0 1.2rem;
+        }
+
+        p {
+            font-size: 1.6rem;
+        }
+
+        &__bookmark {
+            background: rgb(245, 245, 245);
+            color: $neu-d-gray;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            border-radius: 2.8rem;
+
+            span {
+                display: block;
+                padding: 0 2.4rem 0 1.6rem;
+            }
+        }
+
+        &__btns {
+            margin: 3rem 0 1.5rem;
+        }
+
+        &__counts {
+            padding: 4.8rem;
+            text-align: left;
+        }
+
+        &__info {
+            display: flex;
+            align-items: center;
+        }
+
+        &__dollars, &__backers {
+            width: calc(100% / 3);
+            padding-right: 4rem;
+            border-right: 1px solid rgb(226, 226, 226);
+        }
+
+        &__backers, &__days {
+            width: calc(100% / 3);
+            padding-left: 5rem;
+        }
+
+        hr {
+            display: none;
+        }
+
+        &__about {
+            padding: 5rem 4rem;
+
+            p {
+                font-size: 1.65rem;
+                margin-bottom: 3.2rem;
+            }
+        }
+
+        &__project {
+
+            h2 {
+                font-size: 2rem;
+                margin-bottom: 3.2rem;
+            }
+        }
+
+        &__container {
+            margin-top: 4rem;
+        }
+
+        &__card {
+            padding: 3rem 3.2rem;
+        }
+
+        &__stand {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            h3 {
+                font-size: 2rem;
+            }
+
+            span {
+                font-size: 1.5rem;
+            }
+        }
+
+        &__select {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            button {
+                margin: 0;
+            }
+        }
+
+        &__left {
+            margin: 0;
+        }
+    }
+
+    .modal {
+        padding: 0;
+
+        &__container {
+            padding: 5.5rem 4.8rem;
+            margin: 18.5rem auto 108rem;
+        }
+
+        h2 {
+            font-size: 2.4rem;
+        }
+
+        p {
+            font-size: 1.6rem;
+            margin: 1.2rem 0 3rem;
+        }
+
+        &__close {
+            position: relative;
+            top: -3rem;
+            right: -2rem;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            margin: 0 1.5rem 0 0;
+        }
+
+        &__stand {
+            flex-direction: row;
+            align-items: center;
+
+            span {
+                font-size: 1.6rem;
+            }
+        }
+
+        &__card {
+            position: relative;
+
+            p {
+                margin-left: 4rem;
+                margin-bottom: .5rem;
+                font-size: 1.5rem;
+            }
+        }
+
+        &__left {
+            position: absolute;
+            top: .9rem;
+            right: 3.6rem;
+        }
+
+        &__continue {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 3rem 0 0 0;
+            padding-top: 2rem;
+
+            p {
+                margin: 0;
+            }
+        }
+
+        form {
+            margin: 0;
+            button {
+                margin-left: 1.6rem;
+            }
+        }
+    }
+
+    .thank {
+        padding: 0;
+
+        &__container {
+            padding: 5rem;
+        }
+
+        &__icon {
+            width: 92px;
+            height: 92px;
+        }
+
+        h3 {
+            font-size: 2.4rem;
+            margin: 5rem 0 2rem;
+        }
+
+        p {
+            font-size: 1.6rem;
+        }
+    }
+}
+
+@include laptop {
+    .header {
+        padding: 4.8rem 16.5rem;
+    }
+}

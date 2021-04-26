@@ -8,6 +8,8 @@ body {
     font-family: 'Commissioner', sans-serif; //400, 500, 700
     font-size: 1.6rem;
     background: rgb(250, 250, 250);
+    max-width: 1440px;
+    margin: auto;
 }
 
 a {
@@ -31,7 +33,7 @@ button {
         left: 0;
         top: 0;
         padding: 1.6rem 3rem;
-        width: max-content;
+        width: 155px;
         font-size: 1.4rem;
     }
 }
@@ -58,7 +60,7 @@ button {
         visibility: hidden;
         position: relative;
 
-        &:after {
+        &::after {
             visibility: visible;
             content: "Bookmarked";
             color: $pri-d-cyan;
@@ -77,11 +79,13 @@ button {
 }
 
 .header {
-    background: url(../images/image-hero-mobile.jpg) no-repeat;
+    background: url(../images/image-hero-mobile.jpg) no-repeat, rgba(0, 0, 0, .1);
+    background-blend-mode: darken;
     background-size: cover;
     width: 100%;
     height: 300px;
     padding: 3.2rem 2.5rem;
+    position: relative;
 
     &__menu {
         display: flex;

@@ -33,7 +33,8 @@
     }
 
     .header {
-        background: url(../images/image-hero-desktop.jpg) no-repeat;
+        background: url(../images/image-hero-desktop.jpg) no-repeat, rgba(0, 0, 0, .3);
+        background-blend-mode: darken;
         height: 400px;
         padding: 4rem;
 

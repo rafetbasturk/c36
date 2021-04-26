@@ -191,7 +191,7 @@ const UIController = (() => {
                             <p>Enter your pledge</p>
                             <form class="modal__form">
                                 <div>
-                                    <input type="number" name="price" value=${object.pledge} aria-label="select quantity">
+                                    <input type="number" name="price" min=${object.pledge} value=${object.pledge} aria-label="select quantity">
                                     <span>$</span>
                                 </div>
                                 <input type="submit" value="Continue" aria-label="submit quantity">

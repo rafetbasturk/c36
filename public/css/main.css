@@ -365,14 +365,13 @@ button:hover {
   top: 0;
   left: 0;
   width: 100%;
-  height: 2320px;
   padding: 2.4rem;
   display: none;
 }
 
 .modal::before {
   content: "";
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -518,7 +517,7 @@ button:hover {
   text-align: center;
 }
 
-.modal form {
+.modal__form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -532,11 +531,11 @@ button:hover {
   margin-top: 1.8rem;
 }
 
-.modal form div {
+.modal__form div {
   position: relative;
 }
 
-.modal form input[type="number"] {
+.modal__form input[type="number"] {
   width: 100px;
   border-radius: 26px;
   border: 1px solid #dbdbdb;
@@ -547,12 +546,12 @@ button:hover {
   font-size: 1.5rem;
 }
 
-.modal form input[type="number"]:hover {
+.modal__form input[type="number"]:hover {
   cursor: pointer;
   border: 1px solid #3cb4ac;
 }
 
-.modal form span {
+.modal__form span {
   color: #bebebe;
   font-weight: 500;
   position: absolute;
@@ -562,7 +561,7 @@ button:hover {
           transform: translateY(-50%);
 }
 
-.modal form input[type="submit"] {
+.modal__form input[type="submit"] {
   padding: 1.6rem 2.5rem;
   font-size: 1.4rem;
   border: none;
@@ -572,7 +571,7 @@ button:hover {
   background: #3cb4ac;
 }
 
-.modal form input[type="submit"]:hover {
+.modal__form input[type="submit"]:hover {
   cursor: pointer;
   background: #147b74;
 }
@@ -799,7 +798,7 @@ button:hover {
   }
   .modal__container {
     padding: 5.5rem 4.8rem;
-    margin: 18.5rem auto 108rem;
+    margin: 18.5rem auto;
   }
   .modal h2 {
     font-size: 2.4rem;
@@ -858,11 +857,8 @@ button:hover {
   .modal__continue p {
     margin: 0;
   }
-  .modal form {
+  .modal__form {
     margin: 0;
-  }
-  .modal form button {
-    margin-left: 1.6rem;
   }
   .thank {
     padding: 0;

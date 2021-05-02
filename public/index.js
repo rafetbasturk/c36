@@ -96,17 +96,16 @@ const UIController = (() => {
         close: ".header__close",
         nav: ".header__nav",
         mainContainer: ".main__container",
+        modalCards: ".modal__card",
         modalAdded: ".modal__added",
         bookmark: ".main__bookmark",
         counts: ".main__counts",
         mainBtns: ".main button",
         modal: ".modal",
-        modalClose: ".modal__close",
         thankBtn: ".thank button",
         thank: ".thank",
         mainLeft: ".main__left",
         modalLeft: ".modal__left",
-        btnsSubmit: ".modal button",
         options: ".modal__option",
         form: ".modal__form"
     };
@@ -208,36 +207,57 @@ const UIController = (() => {
 
 const App = ((ui, data, storage) => {
     const selectors = ui.getSelectors();
+    const modal = document.querySelector(selectors.modal);
     let info = storage.loadInfo();
     let stands = storage.loadStands();
     let bookmarked = storage.loadBookmark();
     const time = data.getTime();
 
-    const loadEventListeners = function () {
+    const loadEventListeners = () => {
         document.querySelector(selectors.menu).addEventListener("click", hamMenu);
         document.querySelector(selectors.bookmark).addEventListener("click", toggleBookmark);
-        document.querySelectorAll(selectors.mainBtns).forEach(btn => {
+        document.querySelectorAll(selectors.mainBtns).forEach((btn, i) => {
             btn.addEventListener("click", () => {
                 scrollTo(0, 0);
-                document.querySelector(selectors.modal).style.display = "block"
-            })
+                modal.style.display = "block";
+                if (i===0) {
+                    modal.firstElementChild.children[2].classList.add("border");
+                    modal.firstElementChild.children[2].firstElementChild.firstElementChild.firstElementChild.classList.remove("hide");
+                    modal.firstElementChild.children[2].lastElementChild.classList.remove("hide");
+                } else if (i>0){
+                    modal.firstElementChild.lastElementChild.children[i-1].classList.add("border");
+                    modal.firstElementChild.lastElementChild.children[i-1].firstElementChild.firstElementChild.firstElementChild.classList.remove("hide");
+                    modal.firstElementChild.lastElementChild.children[i-1].lastElementChild.classList.remove("hide");
+                }
+            });
         });
-        document.querySelector(selectors.modalClose).addEventListener("click", () => {
-            document.querySelector(selectors.modal).style.display = "none"
+        
+        modal.addEventListener("click", (e) => {
+            if(e.target.classList.contains("modal") || e.target.classList.contains("modal__close")){
+                document.querySelectorAll(selectors.modalCards).forEach(card => {
+                    if (card.classList.contains("border")){
+                        card.classList.remove("border");
+                        card.firstElementChild.firstElementChild.firstElementChild.classList.add("hide");
+                        card.lastElementChild.classList.add("hide");
+                    }
+                })
+                modal.style.display = "none"
+            };
         });
         document.querySelector(selectors.thankBtn).addEventListener("click", () => {
             scrollTo(0, 0);
             location.reload();
+            document.querySelectorAll(selectors.options).forEach(option => {
+                if(option.parentElement.classList.contains("border")){
+                    option.parentElement.classList.remove("border");
+                }
+            });
         });
         document.querySelectorAll(selectors.options).forEach(option => {
-            if (option.parentNode.childElementCount == 3) {
-                option.addEventListener("click", backProject)
-            } else {
-                option.addEventListener("click", backProjectStand)
-            }
+            option.addEventListener("click", backProject);
         });
-        document.querySelectorAll(selectors.form).forEach(form => {
-            form.addEventListener("submit", submitProcess)
+        document.querySelectorAll(selectors.form).forEach(element => {
+            element.addEventListener("submit", submitProcess)
         });
     };
 
@@ -260,15 +280,15 @@ const App = ((ui, data, storage) => {
     };
 
     const backProject = (e) => {
-        e.currentTarget.children[0].children[0].classList.toggle("hide");
-        e.currentTarget.parentNode.classList.toggle("border");
-        e.currentTarget.parentNode.children[2].classList.toggle("hide")
-    };
+        document.querySelectorAll(selectors.modalCards).forEach(card => {
+            card.classList.remove("border");
+            card.firstElementChild.firstElementChild.firstElementChild.classList.add("hide");
+            card.lastElementChild.classList.add("hide");
+        });
 
-    const backProjectStand = (e) => {
-        e.currentTarget.children[0].children[0].classList.toggle("hide");
-        e.currentTarget.parentNode.classList.toggle("border");
-        e.currentTarget.parentNode.children[3].classList.toggle("hide")
+        e.currentTarget.parentElement.classList.add("border");
+        e.currentTarget.parentElement.firstElementChild.firstElementChild.firstElementChild.classList.remove("hide");
+        e.currentTarget.parentElement.lastElementChild.classList.remove("hide");
     };
 
     const disableElements = () => {
@@ -284,7 +304,7 @@ const App = ((ui, data, storage) => {
             if (l.children[0].textContent == 0) {
                 l.parentNode.classList.add("main--opac");
                 l.nextElementSibling.children[1].children[1].disabled = true;
-                l.parentNode.children[0].removeEventListener("click", backProjectStand);
+                l.parentNode.children[0].removeEventListener("click", backProject);
             }
         });
     };

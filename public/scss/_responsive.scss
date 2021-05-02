@@ -180,7 +180,7 @@
 
         &__container {
             padding: 5.5rem 4.8rem;
-            margin: 18.5rem auto 108rem;
+            margin: 18.5rem auto;
         }
 
         h2 {
@@ -240,11 +240,8 @@
             }
         }
 
-        form {
+        &__form {
             margin: 0;
-            button {
-                margin-left: 1.6rem;
-            }
         }
     }
 
